@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOT! TREND 추천광고상품</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <style>
+        .fa-solid{
+            background:#333;
+            color:white;
+            padding:5px;
+            font-size:30px;
+            position:absolute;
+        }
+        #product{
+            position:relative;
+            width:325px;
+            height:600px;
+        }
+        #left{
+            top:50%; left:0px;
+        }
+        #right{
+            top:50%; right:0px;
+        }
+    </style>
+</head>
+<body>
+    
+<div id="product">
+    <h2>HOT! TREND <br>추천광고상품</h2>
+    <img src="./images3/product1.png" alt="제품1" id="product_img" class="slide">
+    <img src="./images3/product2.jpg" alt="제품2" id="product_img" class="slide">
+    <img src="./images3/product3.jpg" alt="제품3" id="product_img" class="slide">
+    <img src="./images3/product4.jpg" alt="제품4" id="product_img" class="slide">
+    <img src="./images3/product5.jpg" alt="제품5" id="product_img" class="slide">
+    <img src="./images3/product6.jpg" alt="제품6" id="product_img" class="slide">
+    <img src="./images3/product7.jpg" alt="제품7" id="product_img" class="slide">
+    <img src="./images3/product8.png" alt="제품8" id="product_img" class="slide">
+    <img src="./images3/product9.jpg" alt="제품9" id="product_img" class="slide">
+    <img src="./images3/product10.png" alt="제품10" id="product_img" class="slide">
+    <img src="./images3/product11.jpg" alt="제품11" id="product_img" class="slide">
+    <img src="./images3/product12.jpg" alt="제품12" id="product_img" class="slide">
+    <img src="./images3/product13.png" alt="제품13" id="product_img" class="slide">
+    <img src="./images3/product14.jpg" alt="제품14" id="product_img" class="slide">
+    <img src="./images3/product15.jpg" alt="제품15" id="product_img" class="slide">
+    <img src="./images3/product16.jpg" alt="제품16" id="product_img" class="slide">
+    <img src="./images3/product17.jpg" alt="제품17" id="product_img" class="slide">
+    <img src="./images3/product18.jpg" alt="제품18" id="product_img" class="slide">
+    <i class="fa-solid fa-chevron-left" onclick="plusSlides(-1)" id="left"></i>
+    <i class="fa-solid fa-chevron-right" onclick="plusSlides(1)" id="right"></i>
+</div>
+
+<script>
+let ran = Math.ceil(Math.random()*18);
+
+var tester=new Image();
+tester.onload=function(){
+document.getElementById('product_img').src="./images3/product"+ran+".jpg";  
+};
+tester.onerror=function(){
+    document.getElementById('product_img').src="./images3/product"+ran+".png";
+}
+tester.src="./images3/product"+ran+'.jpg';
+
+let sliderImages = document.querySelectorAll(".slide"),
+    left = document.querySelector("#left"),
+    right = document.querySelector("#right"),
+    current = 0;
+
+function reset(){
+    for (let i = 0; i <sliderImages.length; i++){
+        sliderImages[i].style.display="none";
+    }
+}
+function startSlide(){
+    reset();
+    sliderImages[0].style.display="block";
+}
+function slideLeft(){
+    reset();
+    sliderImages[current -1].style.display="block";
+    current--;
+}
+function slideRight(){
+    reset();
+    sliderImages[current + 1].style.display="block";
+    current++;
+}
+left.addEventListener("click", function(){
+    if(current === 0){
+        current = sliderImages.length;
+    }
+    slideLeft();
+});
+right.addEventListener("click",function(){
+    if(current === sliderImages.length - 1){
+        current = -1;
+    }
+    slideRight();
+});
+startSlide();
+</script>
+    </body>
+</html>
