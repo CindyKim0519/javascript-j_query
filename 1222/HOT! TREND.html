@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOT! TREND 추천광고상품</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <style>
+        .fa-solid{
+            background:#333;
+            color:white;
+            padding:5px;
+            font-size:30px;
+            position:absolute;
+        }
+        #product{
+            position:relative;
+            width:325px;
+            height:600px;
+        }
+        #left{
+            top:50%; left:0px;
+        }
+        #right{
+            top:50%; right:0px;
+        }
+        #product{
+            margin:0 auto;
+            text-align:center;
+            border: 2px solid#000;
+            height:704px;
+        }
+    </style>
+</head>
+<body>
+    
+<div id="product">
+    <h2>HOT! TREND <br>추천광고상품</h2>
+    <img src="./images3/product01.png" alt="제품1" id="product_img" class="slide">
+    <i class="fa-solid fa-chevron-left" id="left"></i>
+    <i class="fa-solid fa-chevron-right" id="right"></i>
+</div>
+
+<script>
+    let product_m = ['product01.png','product02.jpg','product03.jpg','product04.jpg','product05.jpg','product06.jpg','product07.jpg','product08.png','product09.jpg','product10.png' ,'product11.jpg','product12.jpg','product13.png','product14.jpg','product15.jpg','product16.jpg','product17.jpg','product18.jpg']
+let ran = Math.floor(Math.random()*18);
+let p = product_m[ran];
+
+document.getElementById('product_img').src=`./images3/${p}`;
+
+    const left = document.getElementById("left");
+    const right = document.getElementById("right");
+    let n = 0;
+
+left.addEventListener('click', function(){
+    if(n == 0){
+        n=17;
+    }else{
+        n--;
+    }
+    document.getElementById('product_img').src=`./images3/${product_m[n]}`;
+});
+right.addEventListener('click', function(){
+    if(n == 17){
+        n = 0;
+    }else{
+        n++;
+    }
+    document.getElementById('product_img').src=`./images3/${product_m[n]}`;
+});
+</script>
+    </body>
+</html>
